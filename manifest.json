@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "CS 128 Split-Screen Code Dock",
+  "version": "1.0.0",
+  "description": "将 UIUC CS 128 的 Programming Activity 和 Additional Practice 代码框固定到右侧分屏，方便边看题边写代码。",
+  "content_scripts": [
+    {
+      "matches": ["https://cs128.org/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ]
+}

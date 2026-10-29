@@ -1,0 +1,132 @@
+:root {
+  --cs128-dock-width: 48vw;
+  --cs128-topbar-h: 57px;
+}
+
+/* 改造文件标签栏，使「右置代码框」按钮固定在最右侧 */
+.new-core-tabbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.new-core-tabbar > nav.new-core-tabs {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+/* 切换按钮样式（自动适配 Light / Dark 主题变量） */
+.cs128-dock-toggle-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--bs-border-color, #444);
+  background-color: var(--bs-tertiary-bg, rgba(128, 128, 128, 0.15));
+  color: var(--bs-body-color, inherit);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.cs128-dock-toggle-btn:hover {
+  background-color: var(--bs-secondary-bg, rgba(128, 128, 128, 0.28));
+  border-color: var(--bs-primary, #0d6efd);
+}
+
+.cs128-dock-toggle-btn.is-active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #ffffff;
+}
+
+/* 原位置的虚线占位提示框 */
+.cs128-dock-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border: 2px dashed var(--bs-border-color, #555);
+  border-radius: 8px;
+  background-color: var(--bs-tertiary-bg, rgba(128, 128, 128, 0.06));
+  color: var(--bs-secondary-color, #888);
+  font-size: 14px;
+}
+
+/* 拖拽分屏宽度手柄（默认隐藏，进入分屏时显示） */
+.cs128-dock-resizer {
+  display: none;
+}
+
+/* 仅在桌面端宽屏 (>= 992px) 下激活左右分屏布局 */
+@media (min-width: 992px) {
+  /* 隐藏原本右侧的 On this page 目录栏 */
+  body.cs128-dock-active #scroll-nav {
+    display: none !important;
+  }
+
+  /* 左侧主内容区收缩让位 */
+  body.cs128-dock-active main#content > .container-xl.page-layout {
+    max-width: calc(100vw - var(--cs128-dock-width)) !important;
+    width: calc(100vw - var(--cs128-dock-width)) !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    display: block !important;
+  }
+
+  body.cs128-dock-active main#content > .container-xl.page-layout > .page-content {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* 右侧固定的代码工作区（不设置 transform/filter/contain 以保护 Modal 弹窗） */
+  .cs128-workspace-docked {
+    position: fixed !important;
+    top: var(--cs128-topbar-h) !important;
+    right: 0 !important;
+    width: var(--cs128-dock-width) !important;
+    height: calc(100vh - var(--cs128-topbar-h)) !important;
+    z-index: 1030 !important;
+    background-color: var(--bs-body-bg, #1e1e1e) !important;
+    border-left: 1px solid var(--bs-border-color, #333) !important;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.2) !important;
+    padding: 12px 16px 20px 16px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+  }
+
+  /* 让右侧分屏内的 Ace Editor 自适应屏幕高度 */
+  .cs128-workspace-docked .ace_editor {
+    height: calc(100vh - 310px) !important;
+    min-height: 280px !important;
+  }
+
+  /* 激活状态下的左侧边缘拖拽调宽线 */
+  body.cs128-dock-active .cs128-dock-resizer {
+    display: block;
+    position: fixed;
+    top: var(--cs128-topbar-h);
+    right: calc(var(--cs128-dock-width) - 4px);
+    width: 8px;
+    height: calc(100vh - var(--cs128-topbar-h));
+    cursor: col-resize;
+    z-index: 1035;
+    background: transparent;
+    transition: background-color 0.15s;
+  }
+
+  body.cs128-dock-active .cs128-dock-resizer:hover,
+  body.cs128-dock-active .cs128-dock-resizer.is-dragging {
+    background-color: rgba(13, 110, 253, 0.5);
+  }
+}
