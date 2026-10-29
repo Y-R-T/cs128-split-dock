@@ -4,7 +4,7 @@
 ![Browser](https://img.shields.io/badge/Browser-Chrome%20%7C%20Edge%20%7C%20Brave%20%7C%20Arc-success?style=flat-square)
 ![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20%E7%AE%80%E4%B8%AD%20%7C%20%E7%B9%81%E4%B8%AD-informational?style=flat-square)
 ![Course](https://img.shields.io/badge/UIUC-CS%20128-FF5F05?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
+![License](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)
 
 **[English](#english) | [中文说明](#中文说明)**
 
