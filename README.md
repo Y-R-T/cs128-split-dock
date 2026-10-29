@@ -14,9 +14,9 @@
 
 ## 📖 Overview
 
-On the UIUC **CS 128 (`cs128.org`)** course website, the default vertical layout places the coding workspace at the very bottom of the problem specification. When working on **Programming Activities** or **Additional Practice**, students constantly have to scroll up and down to check method signatures, member variables, and edge cases.
+On the UIUC **CS 128 (`cs128.org`)** course website, the official full-screen mode expands the coding workspace to cover the entire viewport, hiding all surrounding context (such as textbook walkthroughs, learning objectives, or preceding code concepts). When you are a beginner trying to learn and code at the same time, this forces you to constantly exit full-screen or scroll up and down, which is quite frustrating.
 
-**CS 128 Split-Screen Code Dock** is a lightweight browser extension that adds a one-click toggle to dock any coding workspace to the right side of your screen—giving you a LeetCode-style split-screen experience while keeping all native CS 128 features intact.
+**CS 128 Split-Screen Code Dock** is a lightweight browser extension that adds a **"Dock Right"** button to every coding workspace. Instead of a disruptive full-screen view, it transforms the page into a clean, **LeetCode-style left-right split screen**—keeping the problem description and textbook notes fully visible on the left while you code and run tests on the right.
 
 ---
 
@@ -55,7 +55,7 @@ Then load the cloned directory via **Load unpacked** in `chrome://extensions/`.
 ## 🛠️ How to Use
 
 | Action | How to Trigger |
-| :--- | :--- |
+| --- | --- |
 | **Dock to Right** | Click **`◫ Dock Right`** on the right end of the file tabs (`includes/...`, `src/...`). |
 | **Resize Panel** | Hover over the left border of the right panel until the blue highlight appears, then drag left/right. |
 | **Undock (Restore)** | Click **`✕ Undock`** at the top-right of the code editor, or click **`Restore Here`** in the dashed placeholder box inside the problem text. |
@@ -63,21 +63,22 @@ Then load the cloned directory via **Load unpacked** in `chrome://extensions/`.
 
 ---
 
-<a name="中文说明"></a>
-
 ## 🇨🇳 中文说明
 
 ### 简介
-在 UIUC **CS 128 (`cs128.org`)** 课程网站写练习题时，默认的上下流式布局会把代码框放在冗长的题干、接口表格和 Edge Cases 最下方，导致写几行代码就得往回翻一次题干。
 
-本扩展在每个代码框的文件标签栏右侧注入了一个 **「◫ 右置代码框」**（英文浏览器下为 **`◫ Dock Right`**）按钮，点击即可将代码工作区固定到屏幕右侧，实现左题右码的分屏体验。
+在 UIUC **CS 128 (`cs128.org`)** 课程网站写练习题时，官方自带的全屏模式（Full-screen）虽然放大了代码框，但会把周围所有的题干说明、上方知识点和上下关联内容全部隐藏。对于刚接触这门课、需要经常对照教程和知识点进行实践的同学来说，频繁在全屏与上下滚动之间切换非常不友好。
+
+本扩展应运而生。我们在每个代码框的文件标签栏右侧注入了一个 **「◫ 右置代码框」**（英文浏览器下为 **`◫ Dock Right`**）按钮，点击后不会像官方全屏那样丢失上下文，而是直接打造一个清爽的**左侧看题/看笔记、右侧写代码并跑测试的左右分屏体验**。
 
 ### 核心特性
-- **一键右置与还原**：支持页面内所有的 `Programming Activity`、`Additional Practice` 以及正文中的 `Runnable` 演示代码框，多题之间点击即可自动互斥切换。
-- **自由拖拽调宽**：鼠标移至右侧代码框左边缘即可左右拖动调整分屏比例（`30vw` ~ `68vw`），并自动记忆你的宽度偏好。
-- **多语言自动适配（i18n）**：根据浏览器首选语言（`navigator.language`）自动切换英文、简体中文或繁体中文界面。
-- **零功能冲突**：完全保留原页面 DOM 引用与事件绑定，`Run`、`Grade`、`Save`、拖拽上传代码文件、`History` 历史提交对比弹窗、以及 Ace Editor 光标定位全部原样正常工作。
-- **深浅主题自适应**：原生复用网站内置的 Bootstrap 5.3 CSS 变量，切换 Light / Dark 模式或刷新页面后自动恢复分屏状态。
+
+* **左题右码，无需来回翻页**：完美解决官方全屏模式下看不到上下文的痛点，新手查阅知识点和写代码效率倍增。
+* **一键右置与还原**：支持页面内所有的 `Programming Activity`、`Additional Practice` 以及正文中的 `Runnable` 演示代码框，多题之间点击即可自动互斥切换。
+* **自由拖拽调宽**：鼠标移至右侧代码框左边缘即可左右拖动调整分屏比例（`30vw` ~ `68vw`），并自动记忆你的宽度偏好。
+* **多语言自动适配（i18n）**：根据浏览器首选语言（`navigator.language`）自动切换英文、简体中文或繁体中文界面。
+* **零功能冲突**：完全保留原页面 DOM 引用与事件绑定，`Run`、`Grade`、`Save`、拖拽上传代码文件、`History` 历史提交对比弹窗、以及 Ace Editor 光标定位全部原样正常工作。
+* **深浅主题自适应**：原生复用网站内置的 Bootstrap 5.3 CSS 变量，切换 Light / Dark 模式或刷新页面后自动恢复分屏状态。
 
 ### 安装步骤（Windows / macOS 通用）
 1. **下载代码**：点击本页面右上角绿色的 **`<> Code`** 按钮，选择 **`Download ZIP`**。
